@@ -1,0 +1,95 @@
+Bonjour,
+j'ai créé deux fichiers qui peuvent t'aider ( ca crypte le mot de passe dans un fichier texte)
+
+1er fichier: CRYPT.bat
+
+@echo off
+set centralpath=C:\Zemax95\GSS\System
+if not exist %centralpath%\crypt.GSS call instal.bat
+if not exist %centralpath%\data.GSS call instal.bat
+TITLE Global Security System-Zemax95
+mode con cols=50 lines=45
+color F0
+echo Global Security System
+echo Zemax95
+REM Chargement des donnees
+for /F "usebackq tokens=2 delims=*$*" %%i IN ('type %centralpath%\data.GSS') DO set user=%%i
+for /F "usebackq tokens=4 delims=*$*" %%i IN ('type %centralpath%\data.GSS') DO set file=%%i
+for /F "usebackq tokens=3 delims=*$*" %%i IN ('find /N /I "MDP" %centralpath%\data.GSS') DO set mdp=%%i
+set one=%Mdp:~0,1%
+set two=%Mdp:~1,1%
+set thr=%Mdp:~2,1%
+set for=%Mdp:~3,1%
+echo msgbox "Bienvenue %user%!",vbexclamation,"Bienvenue-Notification GSS" >%centralpath%\welcome.vbs
+echo.
+
+for /F "usebackq tokens=2 delims=+!+" %%i IN ('find /N /I "%one%" %centralpath%\crypt.GSS') DO set one=%%i
+for /F "usebackq tokens=2 delims=+!+" %%i IN ('find /N /I "%two%" %centralpath%\crypt.GSS') DO set two=%%i
+for /F "usebackq tokens=2 delims=+!+" %%i IN ('find /N /I "%thr%" %centralpath%\crypt.GSS') DO set thr=%%i
+for /F "usebackq tokens=2 delims=+!+" %%i IN ('find /N /I "%for%" %centralpath%\crypt.GSS') DO set for=%%i
+rem fin du cryptage
+set mdp=%one%%two%%thr%%for%
+set count=0
+:lockornot
+Set /P pass=Mot de passe:
+if not %pass%==%mdp% goto count
+if %count%==3 goto lock
+if %pass%==%mdp% goto OK
+pause
+:lock
+rundll32.exe user32.dll,LockWorkStation
+goto lockornot
+:count
+set /a count=%count% +1
+if %count%==3 goto lock
+goto lockornot
+:OK
+echo @echo %user% s'est connecte a %TIME% le %DATE% avec succes >>C:\Zemax95\GSS\database\data.LOG
+START %centralpath%\welcome.vbs
+Start C:\Zemax95\gssfolder\%file%
+exit
+
+
+
+2eme fichier: INSTAL.bat
+
+
+@echo off
+title Creation d'un nouveau compte GSS-Zemax95
+if not exist C:\Zemax95\GSS\Database md C:\Zemax95\GSS\Database
+echo @echo Ouvert le %date% a %time% >>C:\Zemax95\GSS\Database\data.LOG
+if not exist C:\Zemax95\GSS\System md C:\Zemax95\GSS\System
+set centralpath=C:\Zemax95\GSS\System
+type crypt.txt >C:\Zemax95\GSS\System\crypt.gss
+attrib +h crypt.txt >C:\Zemax95\GSS\Database\attrib.log
+@attrib +h crypt.txt >nul
+@attrib +h C:\Zemax95\GSS\System\crypt.gss >nul
+attrib crypt.txt >C:\Zemax95\GSS\Database\attrib.log
+cls
+Set /P user=Nom d'utilisateur:
+if /I %user%==Admin goto verif
+cls
+:ok
+set /P mdp=Mot de passe:
+set one=%Mdp:~0,1%
+set two=%Mdp:~1,1%
+set thr=%Mdp:~2,1%
+set for=%Mdp:~3,1%
+for /F "usebackq tokens=3 delims=+!+" %%i IN ('find /N /I "%one%" %centralpath%\crypt.gss') DO set one=%%i
+for /F "usebackq tokens=3 delims=+!+" %%i IN ('find /N /I "%two%" %centralpath%\crypt.gss') DO set two=%%i
+for /F "usebackq tokens=3 delims=+!+" %%i IN ('find /N /I "%thr%" %centralpath%\crypt.gss') DO set thr=%%i
+for /F "usebackq tokens=3 delims=+!+" %%i IN ('find /N /I "%for%" %centralpath%\crypt.gss') DO set for=%%i
+set mdp=%ONE%%TWO%%THR%%FOR%
+echo MDP*$*%user%*$*%mdp%*$*%user% >%centralpath%\data.gss
+md C:\Zemax95\GSSfolder\%user%
+attrib +h C:\Zemax95\GSSfolder\%user%
+if exist C:\Zemax95\GSSfolder\%user% echo Compte cree!
+ping localhost -n 3 >nul
+exit
+:verif
+rundll32.exe user32.dll,LockWorkStation
+goto ok
+
+
+VOILA VOILA
+Alors, pour l'utilisation: tu cliques sur INSTAL.BAT, tu configures ton mot de passe et quand tout est fini, tu cliques sur CRYPT.bat, tu tapes le mdp et le tour est joué!

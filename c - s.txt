@@ -1,0 +1,96 @@
+ping "ip" a envoie un echo
+ping /? voir les autres packets utilisable
+netsh>wlan>connect
+protocole de comminucation
+est un ensemble de regle et
+de stategie permetant une communictation efficase.
+
+1 dir : Affiche la liste des fichiers et dossiers dans le répertoire en cours.
+ 2 cd : Change le répertoire actif dans lequel vous vous trouvez.
+ 3 mkdir : Crée un nouveau dossier.
+ 4 type : Affiche le contenu d'un fichier texte.
+ 5 del : Supprime un fichier.
+ 6 ipconfig : Affiche les informations sur la configuration réseau de votre ordinateur.
+ 7 ping : Vérifie la connectivité réseau vers une adresse IP ou un nom de domaine.
+ 8 tasklist : Affiche la liste des processus en cours d'exécution sur votre ordinateur.
+Voici comment utiliser ces commandes :
+ 1 Pour utiliser la commande dir, ouvrez une fenêtre CMD et tapez dir suivi de la touche Entrée. La liste des fichiers et dossiers dans le répertoire actif s'affichera.
+ 2 Pour utiliser la commande cd, tapez cd suivi du chemin d'accès du répertoire dans lequel vous souhaitez vous déplacer. Par exemple, pour aller dans le dossier "Documents", tapez cd Documents et appuyez sur Entrée.
+ 3 Pour créer un nouveau dossier, tapez mkdir suivi du nom du dossier que vous souhaitez créer. Par exemple, pour créer un dossier appelé "Nouveau dossier", tapez mkdir "Nouveau dossier" et appuyez sur Entrée.
+ 4 Pour afficher le contenu d'un fichier texte, tapez type suivi du chemin d'accès du fichier. Par exemple, pour afficher le contenu d'un fichier appelé "monfichier.txt" qui se trouve dans le dossier "Documents", tapez type C:\Users\VotreNom\Documents\monfichier.txt.
+ 5 Pour supprimer un fichier, tapez del suivi du chemin d'accès du fichier. Par exemple, pour supprimer un fichier appelé "monfichier.txt" qui se trouve dans le dossier "Documents", tapez del C:\Users\VotreNom\Documents\monfichier.txt.
+ 6 Pour afficher les informations de configuration réseau, tapez ipconfig et appuyez sur Entrée.
+ 7 Pour vérifier la connectivité réseau vers une adresse IP ou un nom de domaine, tapez ping suivi de l'adresse IP ou du nom de domaine. Par exemple, pour vérifier la connectivité vers le site Web Google, tapez ping www.google.com et appuyez sur Entrée.
+ 8 Pour afficher la liste des processus en cours d'exécution sur votre ordinateur, tapez tasklist et appuyez sur Entrée.
+Il existe de nombreuses autres commandes CMD que vous pouvez utiliser pour interagir avec votre système Windows. Pour voir la liste complète des commandes disp
+color
+ 0 = Noir        8 = Gris
+    1 = Bleu        9 = Bleu clair
+    2 = Vert        A = Vert clair
+    3 = Bleu-gris        B = Cyan
+    4 = Rouge      C = Rouge clair
+    5 = Violet     D = Violet clair
+    6 = Jaune        E = Jaune clair
+    7 = Blanc       F = Blanc brillant
+set
+
+
+c) Microsoft Corporation. Tous droits réservés.
+
+C:\Users\pc>cd C:\Users\pc\OneDrive\Bureau
+
+C:\Users\pc\OneDrive\Bureau>mkdir Dossier1
+
+C:\Users\pc\OneDrive\Bureau>mkdir Dossier2
+
+C:\Users\pc\OneDrive\Bureau>mkdir Dossier3
+
+C:\Users\pc\OneDrive\Bureau>cd
+C:\Users\pc\OneDrive\Bureau
+
+C:\Users\pc\OneDrive\Bureau>copy f1.txt Dossier1
+        1 fichier(s) copié(s).
+
+C:\Users\pc\OneDrive\Bureau>copy f2.txt Dossier1
+        1 fichier(s) copié(s).
+
+C:\Users\pc\OneDrive\Bureau>copy f3.txt Dossier1
+        1 fichier(s) copié(s).
+
+C:\Users\pc\OneDrive\Bureau>copy f1.txt Dossier2
+        1 fichier(s) copié(s).
+
+C:\Users\pc\OneDrive\Bureau>copy f2.txt Dossier2
+        1 fichier(s) copié(s).
+
+C:\Users\pc\OneDrive\Bureau>copy f3.txt Dossier2
+        1 fichier(s) copié(s).
+
+C:\Users\pc\OneDrive\Bureau>move Dossier2 Dossier1
+        1 répertoires déplacés.
+
+C:\Users\pc\OneDrive\Bureau>move f1.txt Dossier3
+        1 fichier(s) déplacé(s).
+
+C:\Users\pc\OneDrive\Bureau>cd3
+'cd3' n’est pas reconnu en tant que commande interne
+ou externe, un programme exécutable ou un fichier de commandes.
+
+C:\Users\pc\OneDrive\Bureau>cd
+C:\Users\pc\OneDrive\Bureau
+
+C:\Users\pc\OneDrive\Bureau>move Dossier1\*.txt Dossier3
+Remplacer C:\Users\pc\OneDrive\Bureau\Dossier3\f1.txt (Oui/Non/Tous) : Oui
+C:\Users\pc\OneDrive\Bureau\Dossier1\f1.txt
+C:\Users\pc\OneDrive\Bureau\Dossier1\f2.txt
+C:\Users\pc\OneDrive\Bureau\Dossier1\f3.txt
+        3 fichier(s) déplacé(s).
+
+C:\Users\pc\OneDrive\Bureau>move Dossier3 Dossier2
+        1 répertoires déplacés.
+
+C:\Users\pc\OneDrive\Bureau>rd/s/q Dossier1
+
+C:\Users\pc\OneDrive\Bureau>
+
+

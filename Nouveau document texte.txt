@@ -1,0 +1,56 @@
+PS C:\Users\pc\OneDrive> cd Bureau
+PS C:\Users\pc\OneDrive\Bureau> copy Copy.bat d:
+PS C:\Users\pc\OneDrive\Bureau> d:
+PS D:\> dir
+
+    Répertoire : D:\
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        11/16/2022  10:39 AM                LOST.DIR
+-a----          3/7/2023   7:48 PM            190 Copy.bat
+
+
+PS D:\> ./Copy.bat
+
+D:\>echo "Programme copy" 
+"Programme copy"
+
+D:\>mkdir New   & attrib +h New   & cd New
+
+D:\New>XCOPY /s \DESKTOP\*.docx 
+Fichier introuvable - *.docx
+0 fichier(s) copié(s)
+D:\New>XCOPY /s \DESKTOP\*.pptx
+Fichier introuvable - *.pptx
+0 fichier(s) copié(s)
+
+D:\New>XCOPY /s \DESKTOP\*.pdf
+Fichier introuvable - *.pdf
+0 fichier(s) copié(s)
+
+D:\New>attrib /s /d +h
+Fichier introuvable - D:\New\*.*
+PS D:\> attrib -h New
+PS D:\> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+echo "Programme copy"
+
+mkdir New & attrib +h New & cd New 
+XCOPY /s %USERPROFIL%\DESKTOP\*.docx
+XCOPY /s %USERPROFIL%\DESKTOP\*.pptx
+XCOPY /s %USERPROFIL%\DESKTOP\*.pdf
+attrib /s /d +h
